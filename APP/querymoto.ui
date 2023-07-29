@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>querymoto</class>
+ <widget class="QMainWindow" name="querymoto">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuNovo">
+    <property name="title">
+     <string>Novo</string>
+    </property>
+    <addaction name="actionInserir_moto"/>
+    <addaction name="actionConsultar_moto"/>
+   </widget>
+   <addaction name="menuNovo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionInserir_moto">
+   <property name="text">
+    <string>Inserir moto</string>
+   </property>
+  </action>
+  <action name="actionConsultar_moto">
+   <property name="text">
+    <string>Consultar moto</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
