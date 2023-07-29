@@ -9,6 +9,7 @@
 #ifndef UI_CREATE_MOTO_H
 #define UI_CREATE_MOTO_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDateEdit>
@@ -187,6 +188,7 @@ public:
 
         date_buy = new QDateEdit(widget3);
         date_buy->setObjectName(QString::fromUtf8("date_buy"));
+        date_buy->setMinimumDate(QDate(2022, 11, 1));
 
         verticalLayout_7->addWidget(date_buy);
 
