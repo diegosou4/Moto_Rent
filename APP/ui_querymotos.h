@@ -124,7 +124,7 @@ public:
         check_rent = new QCheckBox(querymotos);
         check_rent->setObjectName(QString::fromUtf8("check_rent"));
         check_rent->setTabletTracking(false);
-        check_rent->setChecked(true);
+        check_rent->setChecked(false);
 
         verticalLayout_5->addWidget(check_rent);
 

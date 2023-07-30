@@ -23,29 +23,29 @@ void queryclientes::on_btn_consultar_clicked()
     QString sql = "SELECT client_info.*, moto_info.placa, moto_info.alugada from client_info join moto_info ON client_info.id_moto = moto_info.id_moto";
 
     query.prepare(sql);
-    int i = 0;
-    int j = 0;
+    int row = 0;
+    int col = 0;
     if(query.exec()){
 
 
        ui->tableWidget->setColumnCount(9);
        while(query.next()){
 
-           ui->tableWidget->insertRow(i);
+           ui->tableWidget->insertRow(row);
 
-           while(j < 9)
+           while(col < 9)
            {
-           ui->tableWidget->setItem(i,j, new QTableWidgetItem(query.value(j).toString()));
-           j++;
-           ui->tableWidget->setRowHeight(i,30);
+           ui->tableWidget->setItem(row,col, new QTableWidgetItem(query.value(col).toString()));
+           col++;
+           ui->tableWidget->setRowHeight(col,30);
            }
-           j = 0;
-           i++;
+           col = 0;
+           row++;
           }
            ui->tableWidget->setHorizontalHeaderLabels(namecolunm);
 
-           while(i < ui->tableWidget->rowCount() ){
-               ui->tableWidget->removeRow(i);
+           while(row < ui->tableWidget->rowCount() ){
+               ui->tableWidget->removeRow(row);
            }
 }
 }
