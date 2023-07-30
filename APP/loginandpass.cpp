@@ -3,7 +3,7 @@
 #include "homepage.h"
 #include "teste.h"
 
-#define Path "/home/diemorei/Desktop/Projeto/motorent.db"
+#define Path "/home/diemorei/Desktop/Moto_Rent/SQL/motorent.db"
 
 LoginAndPass::LoginAndPass(QWidget *parent)
     : QMainWindow(parent)
