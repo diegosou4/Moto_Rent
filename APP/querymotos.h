@@ -9,7 +9,6 @@
 #include <QMessageBox>
 #include <QDateEdit>
 #include "create_moto.h"
-
 namespace Ui {
 class querymotos;
 }
@@ -20,22 +19,45 @@ class querymotos : public QWidget
 
 public:
     explicit querymotos(QWidget *parent = nullptr);
-    int check_checked;
     ~querymotos();
-
+    int click_check = 0;
 private slots:
     void on_pushButton_clicked();
 
     void on_btn_createmoto_clicked();
 
-
-
-
-
     void on_check_rent_clicked();
 
 private:
     Ui::querymotos *ui;
+};
+class CheckQuery{
+public:
+    int clickcheck;
+    QString checkline(QString id_moto,QString placa,QString marca,int clickcheck, bool checkbox,QString sql){
+        sql = "SELECT * FROM moto_info WHERE 1=1";
+        if(!id_moto.isEmpty()){
+            sql += " AND id_moto=" + id_moto;
+        }
+
+        if(!placa.isEmpty()){
+            sql += " AND PLACA='" + placa + "'";
+        }
+
+        if(!marca.isEmpty()){
+            sql += " AND marca='" + marca + "'";
+        }
+        if(clickcheck == 1){
+            if(checkbox){
+             sql += " AND alugada=true";
+            } else {
+             sql += " AND alugada=false";
+            }
+        }
+        return sql;
+    }
+
+private:
 };
 
 #endif // QUERYMOTOS_H

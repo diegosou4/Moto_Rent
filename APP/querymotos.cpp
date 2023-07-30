@@ -20,43 +20,22 @@ querymotos::~querymotos()
 void querymotos::on_pushButton_clicked()
 {
     QSqlQuery query;
-    QStringList namecolunm = {"id","Modelo","Marca","Placa","Cor","Km atual","Valor Pago", "Data da Compra", "Status"};
-    QString sql = "SELECT * FROM moto_info WHERE 1=1";
+    QStringList namecolunm = {"id","Modelo","Placa","Marca","Cor","Km atual","Valor Pago", "Data da Compra", "Status"};
+    QString sql;
 
+    CheckQuery checkQuery;
 
-    if(!ui->line_id->text().isEmpty()){
-        sql += " AND id=" + ui->line_id->text();
+    sql = checkQuery.checkline(ui->line_id->text(),ui->line_placa->text(),ui->line_marca->text(),click_check,ui->check_rent->isChecked(),sql);
 
-    }
-    if(!ui->line_placa->text().isEmpty()){
-        sql += " AND placa=" + ui->line_placa->text();
-
-    }
-    if(!ui->line_marca->text().isEmpty()){
-        sql += " AND marca=" + ui->line_marca->text();
-    }
-    if(check_checked == 1){
-        if(ui->check_rent->isChecked()){
-            sql += " AND alugada=true";
-        } else{
-             sql += " AND alugada=false";
-        }
-    }
 
 
      query.prepare(sql);
      int i = 0;
      int j = 0;
      if(query.exec()){
-
-
         ui->tableWidget->setColumnCount(9);
         while(query.next()){
-
             ui->tableWidget->insertRow(i);
-
-
-
             while(j < 9)
             {
             QTableWidgetItem *item = new QTableWidgetItem(query.value(j).toString());
@@ -79,9 +58,6 @@ void querymotos::on_pushButton_clicked()
             while(i < ui->tableWidget->rowCount() ){
                 ui->tableWidget->removeRow(i);
             }
-
-
-
     }
 
      if(i == 0){
@@ -107,6 +83,6 @@ void querymotos::on_btn_createmoto_clicked()
 
 void querymotos::on_check_rent_clicked()
 {
-    check_checked = 1;
+    click_check = 1;
 }
 

@@ -28,4 +28,6 @@ private:
     Ui::queryclientes *ui;
 };
 
+
+
 #endif // QUERYCLIENTES_H

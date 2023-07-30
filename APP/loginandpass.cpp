@@ -22,6 +22,7 @@ void LoginAndPass::on_pushButton_clicked()
 {
     QString username = ui->line_login->text();
     QString password = ui->line_pass->text();
+
     if(Authentication(Path).authenticate(username,password) == 0){
         QMessageBox::information(this,"Logado com sucesso","Seu login foi auntetificado com sucesso seja bem vindo " + username +"");
         auto homepage = new class homepage();
