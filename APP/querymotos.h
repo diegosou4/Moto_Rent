@@ -47,6 +47,7 @@ public:
         if(!marca.isEmpty()){
             sql += " AND marca='" + marca + "'";
         }
+
         if(clickcheck == 1){
             if(checkbox){
              sql += " AND alugada=true";
