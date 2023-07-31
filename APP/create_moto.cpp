@@ -41,7 +41,7 @@ void Create_moto::on_btn_createmoto_clicked()
             query.bindValue(":cor", ui->line_color->text());
             query.bindValue(":valor_pago", ui->line_payedvalue->text().toInt());
             query.bindValue(":data_compra", data_compra);
-        if(query.exec(sql)){
+        if(query.exec()){
             QMessageBox::information(this,"Dados criados","Dados criados com sucesso");
         } else {
             QMessageBox::critical(this, "Erro", "Ocorreu um erro ao criar os dados");

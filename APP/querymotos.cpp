@@ -28,7 +28,6 @@ void querymotos::on_pushButton_clicked()
     sql = checkQuery.checkline(ui->line_id->text(),ui->line_placa->text(),ui->line_marca->text(),click_check,ui->check_rent->isChecked(),sql);
 
 
-
      query.prepare(sql);
      int i = 0;
      int j = 0;

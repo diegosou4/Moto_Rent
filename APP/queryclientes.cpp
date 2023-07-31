@@ -5,12 +5,15 @@ queryclientes::queryclientes(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::queryclientes)
 {
+
     ui->setupUi(this);
+
 }
 
 queryclientes::~queryclientes()
 {
     delete ui;
+
 }
 
 
@@ -19,13 +22,18 @@ queryclientes::~queryclientes()
 void queryclientes::on_btn_consultar_clicked()
 {
     QSqlQuery query;
-    QStringList namecolunm = {"Id do cliente","Nome","NIF","Telefone","Endereco","Data do inicio","Id da moto", "Placa", "Status"};
-    QString sql = "SELECT client_info.*, moto_info.placa, moto_info.alugada from client_info join moto_info ON client_info.id_moto = moto_info.id_moto";
+    QStringList namecolunm = {"Id do cliente","Nome","Telefone","NIF","Endereco","Data do inicio","Id da moto", "Placa", "Status"};
+    QString sql;
 
+
+    CheckQueryClient checkQuery;
+
+    sql = checkQuery.checkline(ui->line_name->text(),ui->line_nif->text(),ui->line_id_moto->text(),clickcheck,ui->check_rent->isChecked(),sql);
     query.prepare(sql);
     int row = 0;
     int col = 0;
     if(query.exec()){
+
 
 
        ui->tableWidget->setColumnCount(9);
@@ -50,5 +58,15 @@ void queryclientes::on_btn_consultar_clicked()
 }
 }
 
+void queryclientes::on_check_rent_clicked()
+{
+    clickcheck = 1;
+}
 
+
+void queryclientes::on_btn_newclient_clicked()
+{
+    auto create_client = new class create_client();
+    create_client->show();
+}
 

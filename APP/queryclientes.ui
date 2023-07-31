@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Consulta Clientes</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -54,14 +54,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_3"/>
+        <widget class="QLineEdit" name="line_id_moto"/>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="QCheckBox" name="check_ative">
+      <widget class="QCheckBox" name="check_rent">
        <property name="text">
-        <string>Ativo</string>
+        <string>Alugada</string>
        </property>
       </widget>
      </item>
@@ -76,6 +76,37 @@
    </item>
    <item row="1" column="0">
     <widget class="QTableWidget" name="tableWidget"/>
+   </item>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>37</width>
+         <height>17</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_report">
+       <property name="text">
+        <string>Gerar Relatorio</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_newclient">
+       <property name="text">
+        <string>Novo Cliente</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
