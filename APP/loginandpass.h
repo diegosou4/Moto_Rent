@@ -59,7 +59,7 @@ public:
           }
 
     }
-}
+};
 private:
     QSqlDatabase db;
 };

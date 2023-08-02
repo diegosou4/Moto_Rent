@@ -16,18 +16,18 @@ homepage::~homepage()
 
 void homepage::on_pushButton_clicked()
 {
-    auto queryclientes = new class queryclientes();
+    queryclientes* PageQueryclientes = new queryclientes();
     homepage::showMinimized();
-    queryclientes->show();
-    queryclientes->activateWindow();
+    PageQueryclientes->show();
+    PageQueryclientes->activateWindow();
 }
 
 
 void homepage::on_pushButton_2_clicked()
 {
-    auto querymotos = new class querymotos();
+    querymotos* PageQuerymotos = new querymotos();
     homepage::showMinimized();
-    querymotos->show();
-    querymotos->activateWindow();
+    PageQuerymotos->show();
+    PageQuerymotos->activateWindow();
 }
 

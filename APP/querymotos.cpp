@@ -71,8 +71,8 @@ void querymotos::on_pushButton_clicked()
 
 void querymotos::on_btn_createmoto_clicked()
 {
-    auto create_moto = new class Create_moto();
-    create_moto->show();
+    Create_moto* PageCreate_moto = new Create_moto();
+    PageCreate_moto->show();
 }
 
 

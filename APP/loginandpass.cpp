@@ -25,12 +25,12 @@ void LoginAndPass::on_pushButton_clicked()
 
     if(Authentication(Path).authenticate(username,password) == 0){
         QMessageBox::information(this,"Logado com sucesso","Seu login foi auntetificado com sucesso seja bem vindo " + username +"");
-        auto homepage = new class homepage();
+        homepage* MyHomepage = new homepage();
         this->close();
-        homepage->show();
+        MyHomepage->show();
     }else if(Authentication(Path).authenticate(username,password) == 1){
        QMessageBox::warning(this,"Autentificaçao falhou","O login ou a senha estao incorretos");
     }else if(Authentication(Path).authenticate(username,password) == 2){
         QMessageBox::critical(this,"Erro", "Erro no banco de dados consulte seu ti");
-    };
+    }
 }

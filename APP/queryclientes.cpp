@@ -66,7 +66,7 @@ void queryclientes::on_check_rent_clicked()
 
 void queryclientes::on_btn_newclient_clicked()
 {
-    auto create_client = new class create_client();
-    create_client->show();
+    create_client* pageCreate_client = new create_client();
+    pageCreate_client->show();
 }
 
