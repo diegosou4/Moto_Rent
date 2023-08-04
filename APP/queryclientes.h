@@ -37,24 +37,39 @@ private:
 
 class CheckQueryClient{
 public:
+    QString name,nif,id_moto,sql;
+    int check;
+    bool checkbox;
+
+
+
+
+    void getValues(QString line_name,QString line_nif,QString line_id_moto, int line_clickcheck, bool line_checkbox){
+        name = line_name;
+        nif = line_nif;
+        id_moto = line_id_moto;
+        check = line_clickcheck;
+        checkbox = line_checkbox;
+    }
+
     QString checkline(QString nome,QString nif,QString id_moto,int clickcheck, bool checkbox,QString sql){
         sql = "SELECT client_info.*, moto_info.placa, moto_info.alugada from client_info join moto_info ON client_info.id_moto = moto_info.id_moto WHERE 1=1";
         if(!nome.isEmpty()){
-            sql += " AND NOME='" + nome + "'";
+            sql += " AND NOME=:nome";
         }
 
         if(!nif.isEmpty()){
-            sql += " AND NIF='" + nif + "'";
+            sql += " AND NIF=:nif";
         }
 
         if(!id_moto.isEmpty()){
-            sql += " AND client_info.id_moto='" + id_moto +"'";
+            sql += " AND client_info.id_moto=:id_moto";
         }
         if(clickcheck == 1){
             if(checkbox){
-             sql += " AND moto_info.alugada=true";
+             sql += " AND moto_info.alugada=:alugada";
             } else {
-             sql += " AND moto_info.alugada=false";
+             sql += " AND moto_info.alugada=:alugada";
             }
         }
         return sql;

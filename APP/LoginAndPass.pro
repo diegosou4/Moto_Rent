@@ -14,6 +14,7 @@ SOURCES += \
     homepage.cpp \
     main.cpp \
     loginandpass.cpp \
+    optionforadmin.cpp \
     queryclientes.cpp \
     querymotos.cpp
 
@@ -22,6 +23,7 @@ HEADERS += \
     create_moto.h \
     homepage.h \
     loginandpass.h \
+    optionforadmin.h \
     queryclientes.h \
     querymotos.h
 
@@ -30,6 +32,7 @@ FORMS += \
     create_moto.ui \
     homepage.ui \
     loginandpass.ui \
+    optionforadmin.ui \
     queryclientes.ui \
     querymotos.ui
 

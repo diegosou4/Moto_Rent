@@ -68,20 +68,18 @@ public:
                query.exec();
         }
 
-        bool queryValid(QSqlQuery query,QString sql){
+        bool queryValid(QSqlQuery query, QString sql){
             sql = "INSERT INTO client_info (nome, numero, nif, endereco, data_contrato, id_moto) "
-                          "VALUES (:nome, :numero, :nif, :endereco, :data_contrato, :id_moto)";
-
-               query.prepare(sql);
-               query.bindValue(":nome",name);
-               query.bindValue(":numero", numero);
-               query.bindValue(":nif",nif);
-               query.bindValue(":endereco",endereco);
-               query.bindValue(":data_contrato",data_contrato);
-               query.bindValue(":id_moto", id_moto);
-               qDebug() << sql;
-               qDebug() << query.exec(sql);
-               qDebug() << query.exec();
+                                                             "VALUES (:nome, :numero, :nif, :endereco, :data_contrato, :id_moto)";
+            query.clear();
+            query.prepare(sql);
+            query.bindValue(":nome", name);
+            query.bindValue(":numero", numero);
+            query.bindValue(":nif", nif);
+            query.bindValue(":endereco", endereco);
+            query.bindValue(":data_contrato", data_contrato);
+            query.bindValue(":id_moto", id_moto);
+            qDebug() << name;
                if(query.exec()){
                    return true;
                } else{
