@@ -1,7 +1,7 @@
 #include "loginandpass.h"
 #include "ui_loginandpass.h"
 #include "homepage.h"
-#include "teste.h"
+
 
 #define Path "/home/diemorei/Desktop/Moto_Rent/SQL/motorent.db"
 

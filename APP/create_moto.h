@@ -63,7 +63,7 @@ public:
     // Inserindo a criacao da moto
     bool queryValid(QString sql,QSqlQuery query){
         sql = "INSERT INTO moto_info (nome_moto, placa, marca, cor, kmatual, valor_pago, data_compra, alugada) "
-                           "VALUES (:nome_moto, :placa, :marca, :cor, :kmatual, :valor_pago, :data_compra, false)";
+                                  "VALUES (:nome_moto, :placa, :marca, :cor, :kmatual, :valor_pago, :data_compra, false)";
         query.prepare(sql);
         query.bindValue(":nome_moto", model);
         query.bindValue(":placa", plate);
