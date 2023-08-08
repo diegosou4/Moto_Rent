@@ -51,29 +51,30 @@ public:
         check = line_clickcheck;
         checkbox = line_checkbox;
     }
-
-    QString checkline(QString nome,QString nif,QString id_moto,int clickcheck, bool checkbox,QString sql){
+    QString addValuesLine(QString sql){
         sql = "SELECT client_info.*, moto_info.placa, moto_info.alugada from client_info join moto_info ON client_info.id_moto = moto_info.id_moto WHERE 1=1";
-        if(!nome.isEmpty()){
-            sql += " AND NOME=:nome";
+        if(!name.isEmpty()){
+            sql += " AND client_info.nome=:nome";
         }
-
         if(!nif.isEmpty()){
-            sql += " AND NIF=:nif";
+            sql += " AND client_info.nif=:nif";
         }
-
         if(!id_moto.isEmpty()){
             sql += " AND client_info.id_moto=:id_moto";
         }
-        if(clickcheck == 1){
+        if(check == 1){
             if(checkbox){
-             sql += " AND moto_info.alugada=:alugada";
-            } else {
-             sql += " AND moto_info.alugada=:alugada";
+             sql += " AND moto_info.alugada=true";
+            }else{
+               sql += " AND NOT moto_info.alugada=true";
             }
+
         }
         return sql;
     }
+
+
+
 
 
 private:

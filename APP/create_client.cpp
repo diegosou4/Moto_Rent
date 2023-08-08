@@ -21,7 +21,7 @@ void create_client::on_pushButton_2_clicked()
     bool lines = checkQuery.islineEmpty(ui->line_name->text(),ui->line_numero->text(),ui->line_nif->text(),ui->line_adress->text(),ui->date_start->text(),ui->line_id_moto->text());   // Vai checkar se tem alguma linha vazia
     int motoisEmpety = checkQuery.check_moto_rent(query);                           // Retorna um valor se a moto esta ocupada ou nao 1 e se estiver alugada 0 se estiver disponivel
 
-    if(!lines){
+    if(lines){
         if(motoisEmpety == 1){
             QMessageBox::warning(this,"Moto Ocupada", "A moto já esta alugada");
         }else if(motoisEmpety == 0){
