@@ -22,15 +22,22 @@ void LoginAndPass::on_pushButton_clicked()
 {
     QString username = ui->line_login->text();
     QString password = ui->line_pass->text();
+    LoginAndPassSucess loginObj;
+    if(Authentication(Path).authenticate()){
 
-    if(Authentication(Path).authenticate(username,password) == 0){
-        QMessageBox::information(this,"Logado com sucesso","Seu login foi auntetificado com sucesso seja bem vindo " + username +"");
-        homepage* MyHomepage = new homepage();
-        this->close();
-        MyHomepage->show();
-    }else if(Authentication(Path).authenticate(username,password) == 1){
-       QMessageBox::warning(this,"Autentificaçao falhou","O login ou a senha estao incorretos");
-    }else if(Authentication(Path).authenticate(username,password) == 2){
+        loginObj.getValues(ui->line_login->text(),ui->line_pass->text());
+        loginObj.convertPass();
+        if(loginObj.queryForLogin()){
+            QString name_user;
+            name_user = loginObj.setName();
+            QMessageBox::information(this,"Seja Bem Vindo", "Ola seja bem vindo " + name_user +" Ao Moto Rent");
+            homepage* MyHomepage = new homepage();
+            this->close();
+            MyHomepage->show();
+        }else{
+                   QMessageBox::warning(this,"Autentificaçao falhou","O login ou a senha estao incorretos");
+        }
+    }else if(Authentication(Path).authenticate()){
         QMessageBox::critical(this,"Erro", "Erro no banco de dados consulte seu ti");
     }
 }

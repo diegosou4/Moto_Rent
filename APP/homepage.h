@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "querymotos.h"
 #include "queryclientes.h"
+#include "querymanutecoes.h"
 
 namespace Ui {
 class homepage;
@@ -21,6 +22,10 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
+
+    void on_btn_sair_clicked();
+
+    void on_Btn_VerificarManutecoes_clicked();
 
 private:
     Ui::homepage *ui;

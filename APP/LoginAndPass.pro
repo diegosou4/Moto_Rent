@@ -16,6 +16,7 @@ SOURCES += \
     loginandpass.cpp \
     optionforadmin.cpp \
     queryclientes.cpp \
+    querymanutecoes.cpp \
     querymotos.cpp
 
 HEADERS += \
@@ -25,6 +26,7 @@ HEADERS += \
     loginandpass.h \
     optionforadmin.h \
     queryclientes.h \
+    querymanutecoes.h \
     querymotos.h
 
 FORMS += \
@@ -34,6 +36,7 @@ FORMS += \
     loginandpass.ui \
     optionforadmin.ui \
     queryclientes.ui \
+    querymanutecoes.ui \
     querymotos.ui
 
 # Default rules for deployment.

@@ -40,28 +40,52 @@ public:
     db.setDatabaseName(Path);
     }
     // Criando uma função para retornar um valor se for 0 deu certo, se der errado vai retornar 1, se der 2 o banco de dados nao foi conectado corretamente
-    int authenticate(const QString& username, const QString & password){
-      QString hashedPassword = QString("%1").arg(QString(QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Md5).toHex()));
-      if (!db.open()) {
-                 qDebug() << "Erro ao abrir o banco de dados";
-                 return 2;
-             }
-
-      QSqlQuery query(db);
-      QString sql = "SELECT login,password FROM user_info WHERE login='" + username + "'" + " AND password='" + hashedPassword + "'";
-      query.prepare(sql);
-
-      if(query.exec()){
-          if(query.next()){
-             return 0;
-          }else{
-              return 1;
-          }
-
-    }
+    bool authenticate(){
+      if (db.open()) {
+                 return true;
+             } else{
+          return false;
+      }
 };
 private:
     QSqlDatabase db;
+};
+
+class LoginAndPassSucess{                                                          // Classe depois que o banco de dados e conectado
+public:
+    void getValues(QString line_username, QString line_password){                 // Recebe os valores
+
+        username  = line_username;
+        password  = line_password;
+    }
+    void convertPass(){                                                          // Converte os valores
+           QString hashedPassword = QString("%1").arg(QString(QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Md5).toHex()));
+           password = hashedPassword;
+    }
+    bool queryForLogin(){                                                       // Faz o Login
+        QSqlQuery query;
+        QString sql = "SELECT login,password,name_user FROM user_info WHERE login=:login and password=:password";
+        query.prepare(sql);
+        query.bindValue(":login",username);
+        query.bindValue(":password", password);
+
+        if(query.exec()){
+            if(query.next()){
+                name = query.value(2).toString();                            // O nome recebe o valor encontrando no banco de dados
+               return true;
+            }else{
+                return false;
+            }
+    }
+        return false;
+
+}
+    QString setName(){
+        return name;
+    }
+private:
+      QString username, password,name;
+
 };
 
 #endif // LOGINANDPASS_H

@@ -31,3 +31,18 @@ void homepage::on_pushButton_2_clicked()
     PageQuerymotos->activateWindow();
 }
 
+
+void homepage::on_btn_sair_clicked()
+{
+    this->close();
+}
+
+
+void homepage::on_Btn_VerificarManutecoes_clicked()
+{
+    querymanutecoes* PageManutecoes = new querymanutecoes();
+    homepage::showMinimized();
+    PageManutecoes->show();
+    PageManutecoes->activateWindow();
+}
+

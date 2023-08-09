@@ -33,19 +33,28 @@ private:
 };
 class CheckQuery{
 public:
+    QString id_moto,placa,marca;
     int clickcheck;
-    QString checkline(QString id_moto,QString placa,QString marca,int clickcheck, bool checkbox,QString sql){
+    bool checkbox;
+    void getLine(QString line_id,QString line_placa,QString line_marca, int click_check, bool check_box){
+        id_moto = line_id;
+        placa = line_placa;
+        marca = line_marca;
+        clickcheck = click_check;
+        checkbox = check_box;
+    }
+    QString addValuesline(QString sql){
         sql = "SELECT * FROM moto_info WHERE 1=1";
         if(!id_moto.isEmpty()){
-            sql += " AND id_moto=" + id_moto;
+            sql += " AND id_moto=:id_moto";
         }
 
         if(!placa.isEmpty()){
-            sql += " AND PLACA='" + placa + "'";
+            sql += " AND PLACA=:placa";
         }
 
         if(!marca.isEmpty()){
-            sql += " AND marca='" + marca + "'";
+            sql += " AND marca=:marca";
         }
 
         if(clickcheck == 1){

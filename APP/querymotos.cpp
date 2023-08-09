@@ -25,10 +25,14 @@ void querymotos::on_pushButton_clicked()
 
     CheckQuery checkQuery;
 
-    sql = checkQuery.checkline(ui->line_id->text(),ui->line_placa->text(),ui->line_marca->text(),click_check,ui->check_rent->isChecked(),sql);
+    checkQuery.getLine(ui->line_id->text(),ui->line_placa->text(),ui->line_marca->text(),click_check,ui->check_rent->isChecked());   // Recebendo os valores das linhas
 
+    sql = checkQuery.addValuesline(sql); // Recebendo o valor de sql
+    query.prepare(sql);
+    query.bindValue(":id_moto", checkQuery.id_moto);
+    query.bindValue(":placa", checkQuery.placa);
+    query.bindValue(":marca", checkQuery.marca);
 
-     query.prepare(sql);
      int i = 0;
      int j = 0;
      if(query.exec()){
@@ -58,7 +62,6 @@ void querymotos::on_pushButton_clicked()
                 ui->tableWidget->removeRow(i);
             }
     }
-
      if(i == 0){
             ui->tableWidget->clearContents();
             ui->tableWidget->setRowCount(0);

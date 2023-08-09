@@ -24,21 +24,21 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btn_queryClientes">
       <property name="text">
        <string>1-Consultar Clientes</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btn_QueryMotos">
       <property name="text">
        <string>2-Consultar Motos</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="Btn_VerificarManutecoes">
       <property name="text">
        <string>3-Verificar Manuntecoes</string>
       </property>
@@ -52,7 +52,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="btn_sair">
       <property name="text">
        <string>5-Sair</string>
       </property>
