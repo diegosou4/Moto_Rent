@@ -19,9 +19,15 @@ void querymanutecoes::on_btn_search_clicked()
     QString sql;
     QStringList namecolunm = {"Nome da Moto","Placa","Marca","Id_moto","Id_Manuntecao","Data","Obersavacao", "Valor"};
     CheckQueryM checkQuery;
+    checkQuery.getLine(ui->line_id_moto->text().toInt(), ui->line_placa->text());
+
     sql = checkQuery.addValuesLine(sql);
-    query.prepare(sql);
+    sql = checkQuery.valuesNotEmpety(sql);
     qDebug() << sql;
+    query.prepare(sql);
+    query.bindValue(":id_moto", checkQuery.id_moto);
+    query.bindValue(":placa", checkQuery.placa);
+
     int j = 0;
     if (query.exec()) {
         ui->tableWidget->setColumnCount(7);
@@ -60,5 +66,12 @@ void querymanutecoes::on_btn_search_clicked()
 
 
 
+}
+
+
+void querymanutecoes::on_btn_add_clicked()
+{
+    create_manutencao* pageCreate_manutencao = new create_manutencao();
+    pageCreate_manutencao->show();
 }
 

@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     create_client.cpp \
+    create_manutencao.cpp \
     create_moto.cpp \
     homepage.cpp \
     main.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     create_client.h \
+    create_manutencao.h \
     create_moto.h \
     homepage.h \
     loginandpass.h \
@@ -31,6 +33,7 @@ HEADERS += \
 
 FORMS += \
     create_client.ui \
+    create_manutencao.ui \
     create_moto.ui \
     homepage.ui \
     loginandpass.ui \
