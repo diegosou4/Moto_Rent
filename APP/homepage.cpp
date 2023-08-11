@@ -14,7 +14,10 @@ homepage::~homepage()
     delete ui;
 }
 
-void homepage::on_pushButton_clicked()
+
+
+
+void homepage::on_btn_queryClientes_clicked()
 {
     queryclientes* PageQueryclientes = new queryclientes();
     homepage::showMinimized();
@@ -23,18 +26,13 @@ void homepage::on_pushButton_clicked()
 }
 
 
-void homepage::on_pushButton_2_clicked()
+
+void homepage::on_btn_QueryMotos_clicked()
 {
     querymotos* PageQuerymotos = new querymotos();
     homepage::showMinimized();
     PageQuerymotos->show();
     PageQuerymotos->activateWindow();
-}
-
-
-void homepage::on_btn_sair_clicked()
-{
-    this->close();
 }
 
 
@@ -45,4 +43,13 @@ void homepage::on_Btn_VerificarManutecoes_clicked()
     PageManutecoes->show();
     PageManutecoes->activateWindow();
 }
+
+void homepage::on_btn_sair_clicked()
+{
+    this->close();
+}
+
+
+
+
 

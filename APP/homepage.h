@@ -19,13 +19,14 @@ public:
     ~homepage();
 
 private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
 
     void on_btn_sair_clicked();
 
     void on_Btn_VerificarManutecoes_clicked();
+
+    void on_btn_queryClientes_clicked();
+
+    void on_btn_QueryMotos_clicked();
 
 private:
     Ui::homepage *ui;

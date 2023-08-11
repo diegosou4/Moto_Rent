@@ -57,11 +57,11 @@ public:
             sql += " AND marca=:marca";
         }
 
-        if(clickcheck == 1){
+        if(clickcheck >= 1){
             if(checkbox){
              sql += " AND alugada=true";
             } else {
-             sql += " AND alugada=false";
+             sql += " AND NOT alugada=true";
             }
         }
         return sql;
