@@ -12,6 +12,7 @@ SOURCES += \
     create_client.cpp \
     create_manutencao.cpp \
     create_moto.cpp \
+    editmanuntecao.cpp \
     homepage.cpp \
     main.cpp \
     loginandpass.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     create_client.h \
     create_manutencao.h \
     create_moto.h \
+    editmanuntecao.h \
     homepage.h \
     loginandpass.h \
     optionforadmin.h \
@@ -35,6 +37,7 @@ FORMS += \
     create_client.ui \
     create_manutencao.ui \
     create_moto.ui \
+    editmanuntecao.ui \
     homepage.ui \
     loginandpass.ui \
     optionforadmin.ui \

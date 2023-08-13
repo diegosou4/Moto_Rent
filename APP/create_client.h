@@ -62,12 +62,13 @@ public:
             return 2;
 
         }
+        // Atualizando o Statuso da moto
         void updateStatusmoto(QSqlQuery query){
                QString sql = "UPDATE moto_info set alugada=true where id_moto='" + id_moto + "'";
                query.prepare(sql);
                query.exec();
         }
-
+        // Adicionando valores no banco de dados
         bool queryValid(QSqlQuery query, QString sql){
             sql = "INSERT INTO client_info (nome, numero, nif, endereco, data_contrato, id_moto) "
                                                              "VALUES (:nome, :numero, :nif, :endereco, :data_contrato, :id_moto)";

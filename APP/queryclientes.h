@@ -41,9 +41,7 @@ public:
     int check;
     bool checkbox;
 
-
-
-
+    // Recebe os valores passado pelo os inputs
     void getValues(QString line_name,QString line_nif,QString line_id_moto, int line_clickcheck, bool line_checkbox){
         name = line_name;
         nif = line_nif;
@@ -51,6 +49,7 @@ public:
         check = line_clickcheck;
         checkbox = line_checkbox;
     }
+    // Rertona o sql de forma correta para nao ter SQL INJECTION
     QString addValuesLine(QString sql){
         sql = "SELECT client_info.*, moto_info.placa, moto_info.alugada from client_info join moto_info ON client_info.id_moto = moto_info.id_moto WHERE 1=1";
         if(!name.isEmpty()){

@@ -6,6 +6,7 @@ querymanutecoes::querymanutecoes(QWidget *parent) :
     ui(new Ui::querymanutecoes)
 {
     ui->setupUi(this);
+
 }
 
 querymanutecoes::~querymanutecoes()
@@ -13,11 +14,17 @@ querymanutecoes::~querymanutecoes()
     delete ui;
 }
 
+
+
+
+
+
+
 void querymanutecoes::on_btn_search_clicked()
 {
     QSqlQuery query;
     QString sql;
-    QStringList namecolunm = {"Nome da Moto","Placa","Marca","Id_moto","Id_Manuntecao","Data","Obersavacao", "Valor"};
+    QStringList namecolunm = {"Id da Manutecao","Nome da Moto","Placa","Marca","Data","Km da Moto","Obersavacao", "Valor"};
     CheckQueryManutecoes checkQuery;
     checkQuery.getLine(ui->line_id_moto->text().toInt(), ui->line_placa->text());
 
@@ -29,7 +36,7 @@ void querymanutecoes::on_btn_search_clicked()
 
     int j = 0;
     if (query.exec()) {
-        ui->tableWidget->setColumnCount(7);
+        ui->tableWidget->setColumnCount(8);
         int i = 0;
 
         while (query.next()) {
@@ -73,4 +80,29 @@ void querymanutecoes::on_btn_add_clicked()
     create_manutencao* pageCreate_manutencao = new create_manutencao();
     pageCreate_manutencao->show();
 }
+
+
+
+
+void querymanutecoes::on_btn_editar_clicked()
+{
+    editmanuntecao* pageEdit_manutecao = new editmanuntecao();
+    pageEdit_manutecao->show();
+    pageEdit_manutecao->setLineEditText(editarManutecao.id_moto);
+
+}
+
+
+void querymanutecoes::on_tableWidget_cellClicked(int row, int column)
+{
+    QString sql;
+    QSqlQuery query;
+    int id_manutencao;
+    id_manutencao = ui->tableWidget->item(row,0)->text().toInt();
+    editarManutecao.getid_manutecao(id_manutencao);
+    editarManutecao.GetValue(sql,query);
+
+}
+
+
 

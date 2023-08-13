@@ -33,6 +33,8 @@ public:
     QString placa,manuntecao,data,observacao;
     int id,km_atual,valor;
 
+
+    // Recebendo os valores dos inputs
     void getValuesLine(QString line_id,QString line_data,QString line_placa,QString line_manuntecao,QString line_valor,QString line_km_atual,QString line_obersevacao){
         id = line_id.toInt();
         data = line_data;
@@ -43,6 +45,7 @@ public:
         observacao = line_obersevacao;
 
     }
+    // Verificando Se tem algum valor vazio
     bool valuesIsEmpety(QString line_id,QString line_data,QString line_placa,QString line_manuntecao,QString line_valor,QString line_km_atual,QString line_obersevacao){
         if(line_id.isEmpty() || line_data.isEmpty() ||line_placa.isEmpty() || line_manuntecao.isEmpty() || line_valor.isEmpty() || line_km_atual.isEmpty() || line_obersevacao.isEmpty()){
             return true;
@@ -50,8 +53,9 @@ public:
             return false;
         }
     }
+    // Adicionando valores no Banco de Dados
     bool queryValid(QString sql, QSqlQuery query){
-    sql = "INSERT INTO moto_info_maintenance(id_moto,data,observacao,valor,tipo_manuntecao) values (:id_moto,:data,:observacao,:valor,:tipo_manuntecao)";
+    sql = "INSERT INTO moto_info_maintenance(id_moto,data,observacao,valor,tipo_manuntecao,km_da_moto) values (:id_moto,:data,:observacao,:valor,:tipo_manuntecao,:km_da_moto)";
     query.clear();
     query.prepare(sql);
     query.bindValue(":id_moto", id);
@@ -59,6 +63,7 @@ public:
     query.bindValue(":observacao", observacao);
     query.bindValue(":valor", valor);
     query.bindValue(":tipo_manuntecao", manuntecao);
+    query.bindValue(":km_da_moto",km_atual);
     if(query.exec()){
         return true;
     } else{

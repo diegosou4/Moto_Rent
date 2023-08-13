@@ -15,6 +15,9 @@ public:
     explicit optionforadmin(QWidget *parent = nullptr);
     ~optionforadmin();
 
+private slots:
+    void on_btn_create_user_clicked();
+
 private:
     Ui::optionforadmin *ui;
 };

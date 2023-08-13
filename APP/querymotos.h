@@ -36,6 +36,8 @@ public:
     QString id_moto,placa,marca;
     int clickcheck;
     bool checkbox;
+
+    // Recebe os valores do input
     void getLine(QString line_id,QString line_placa,QString line_marca, int click_check, bool check_box){
         id_moto = line_id;
         placa = line_placa;
@@ -43,6 +45,7 @@ public:
         clickcheck = click_check;
         checkbox = check_box;
     }
+    // Retrona o sql de forma correta para evitar SQL INJECTION
     QString addValuesline(QString sql){
         sql = "SELECT * FROM moto_info WHERE 1=1";
         if(!id_moto.isEmpty()){

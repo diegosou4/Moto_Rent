@@ -92,6 +92,13 @@
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="btn_editar">
+         <property name="text">
+          <string>Editar</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="btn_add">
          <property name="maximumSize">
           <size>

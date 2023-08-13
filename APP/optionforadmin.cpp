@@ -12,3 +12,9 @@ optionforadmin::~optionforadmin()
 {
     delete ui;
 }
+
+void optionforadmin::on_btn_create_user_clicked()
+{
+
+}
+
