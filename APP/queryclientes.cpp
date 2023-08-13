@@ -21,20 +21,25 @@ queryclientes::~queryclientes()
 
 void queryclientes::on_btn_consultar_clicked()
 {
-    QSqlQuery query;
+
     QStringList namecolunm = {"Id do cliente","Nome","Telefone","NIF","Endereco","Data do inicio","Id da moto", "Placa", "Status"};
     QString sql;
+    CheckQueryClient checkQuery;      // Criando a classe no .cpp para usar
+
+    checkQuery.getValues(ui->line_name->text(),ui->line_nif->text(),ui->line_id_moto->text(),clickcheck, ui->check_rent);     // Guarda os valores na classe
 
 
-    CheckQueryClient checkQuery;
+    sql = checkQuery.addValuesLine(sql);  // Recebendo o valor de sql
+    QSqlQuery query;
 
-    sql = checkQuery.checkline(ui->line_name->text(),ui->line_nif->text(),ui->line_id_moto->text(),clickcheck,ui->check_rent->isChecked(),sql);
     query.prepare(sql);
+    query.bindValue(":nome", checkQuery.name);
+    query.bindValue(":nif", checkQuery.nif);
+    query.bindValue(":id_moto", checkQuery.id_moto);
+
     int row = 0;
     int col = 0;
     if(query.exec()){
-
-
 
        ui->tableWidget->setColumnCount(9);
        while(query.next()){
@@ -66,7 +71,6 @@ void queryclientes::on_check_rent_clicked()
 
 void queryclientes::on_btn_newclient_clicked()
 {
-    auto create_client = new class create_client();
-    create_client->show();
+    create_client* pageCreate_client = new create_client();
+    pageCreate_client->show();
 }
-

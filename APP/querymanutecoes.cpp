@@ -23,7 +23,6 @@ void querymanutecoes::on_btn_search_clicked()
 
     sql = checkQuery.addValuesLine(sql);
     sql = checkQuery.valuesNotEmpety(sql);
-    qDebug() << sql;
     query.prepare(sql);
     query.bindValue(":id_moto", checkQuery.id_moto);
     query.bindValue(":placa", checkQuery.placa);

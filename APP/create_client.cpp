@@ -15,46 +15,29 @@ create_client::~create_client()
 
 void create_client::on_pushButton_2_clicked()
 {
-    if(ui->line_name->text().isEmpty() || ui->line_numero->text().isEmpty() || ui->line_nif->text().isEmpty() || ui->line_adress->text().isEmpty() || ui->line_id_moto->text().isEmpty())
-    {
-    QMessageBox::warning(this,"Dados incompletos", "Os dados informados estao inclompletos");
+    ValidQueryCreator checkQuery;
+    QString sql;
+    QSqlQuery query;
+    bool lines = checkQuery.islineEmpty(ui->line_name->text(),ui->line_numero->text(),ui->line_nif->text(),ui->line_adress->text(),ui->date_start->text(),ui->line_id_moto->text());   // Vai checkar se tem alguma linha vazia
+    int motoisEmpety = checkQuery.check_moto_rent(query);                           // Retorna um valor se a moto esta ocupada ou nao 1 e se estiver alugada 0 se estiver disponivel
+
+    if(lines){
+        if(motoisEmpety == 1){
+            QMessageBox::warning(this,"Moto Ocupada", "A moto já esta alugada");
+        }else if(motoisEmpety == 0){
+            checkQuery.updateStatusmoto(query);
+            bool isValid = checkQuery.queryValid(query, sql);
+            if(isValid){
+                QMessageBox::information(this,"Deu certo", "Deu bom");
+            } else{
+                QMessageBox::warning(this,"Deu erro","Deu erro");
+            }
     }else{
-
-         QString inicio_contrato = ui->date_start->text();
-         QString id_moto = ui->line_id_moto->text();
-
-         QSqlQuery query;
-         QString sql1 = "select alugada from moto_info where id_moto='" + ui->line_id_moto->text() +"'";
-         if(query.exec(sql1)){
-             if(query.next()){
-                 int resultado = query.value(0).toInt();
-                 if(resultado == 1){
-                     QMessageBox::warning(this,"moto ocupada", "A moto ja esta alugada");
-                 } else{
-
-
-                  QString sql = "INSERT INTO client_info (nome, numero, nif, endereco, data_contrato, id_moto) "
-                                                 "VALUES (:nome, :numero, :nif, :endereco, :data_contrato, :id_moto)";
-
-                 query.prepare(sql);
-                 query.bindValue(":nome", ui->line_name->text());
-                 query.bindValue(":numero", ui->line_numero->text());
-                 query.bindValue(":nif", ui->line_nif->text());
-                 query.bindValue(":endereco", ui->line_adress->text());
-                 query.bindValue(":data_contrato", inicio_contrato);
-                 query.bindValue(":id_moto", id_moto);
-                 if(query.exec()){
-                      QMessageBox::information(this,"Dados criados","Dados criados com sucesso");
-                       QString sqlid = "UPDATE moto_info set alugada=true where id_moto='" + ui->line_id_moto->text() + "'";
-                       if(query.exec(sqlid)){
-
-                       };
-                 } else{
-                     QMessageBox::warning(this,"Deu ruim","algo ta errado");
-                 }
-                 }
-             }
-         }
+             QMessageBox::warning(this,"Erro","Algum campo esta vazio");
+        }
     }
+
 }
+
+
 
