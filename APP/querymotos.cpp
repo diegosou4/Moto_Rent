@@ -23,16 +23,12 @@ void querymotos::on_pushButton_clicked()
     QStringList namecolunm = {"id","Modelo","Placa","Marca","Cor","Km atual","Valor Pago", "Data da Compra", "Status"};
     QString sql;
 
-    CheckQueryMotos checkQuery;
+    CheckQuery checkQuery;
 
-    checkQuery.getLine(ui->line_id->text(),ui->line_placa->text(),ui->line_marca->text(),click_check,ui->check_rent->isChecked());   // Recebendo os valores das linhas
+    sql = checkQuery.checkline(ui->line_id->text(),ui->line_placa->text(),ui->line_marca->text(),click_check,ui->check_rent->isChecked(),sql);
 
-    sql = checkQuery.addValuesline(sql); // Recebendo o valor de sql
-    query.prepare(sql);
-    query.bindValue(":id_moto", checkQuery.id_moto);
-    query.bindValue(":placa", checkQuery.placa);
-    query.bindValue(":marca", checkQuery.marca);
 
+     query.prepare(sql);
      int i = 0;
      int j = 0;
      if(query.exec()){
@@ -62,6 +58,7 @@ void querymotos::on_pushButton_clicked()
                 ui->tableWidget->removeRow(i);
             }
     }
+
      if(i == 0){
             ui->tableWidget->clearContents();
             ui->tableWidget->setRowCount(0);
@@ -74,8 +71,8 @@ void querymotos::on_pushButton_clicked()
 
 void querymotos::on_btn_createmoto_clicked()
 {
-    Create_moto* PageCreate_moto = new Create_moto();
-    PageCreate_moto->show();
+    auto create_moto = new class Create_moto();
+    create_moto->show();
 }
 
 

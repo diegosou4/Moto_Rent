@@ -10,36 +10,27 @@ CONFIG += c++11
 
 SOURCES += \
     create_client.cpp \
-    create_manutencao.cpp \
     create_moto.cpp \
     homepage.cpp \
     main.cpp \
     loginandpass.cpp \
-    optionforadmin.cpp \
     queryclientes.cpp \
-    querymanutecoes.cpp \
     querymotos.cpp
 
 HEADERS += \
     create_client.h \
-    create_manutencao.h \
     create_moto.h \
     homepage.h \
     loginandpass.h \
-    optionforadmin.h \
     queryclientes.h \
-    querymanutecoes.h \
     querymotos.h
 
 FORMS += \
     create_client.ui \
-    create_manutencao.ui \
     create_moto.ui \
     homepage.ui \
     loginandpass.ui \
-    optionforadmin.ui \
     queryclientes.ui \
-    querymanutecoes.ui \
     querymotos.ui
 
 # Default rules for deployment.
