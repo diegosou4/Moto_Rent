@@ -31,7 +31,7 @@ private:
     Ui::querymanutecoes *ui;
 };
 
-class CheckQueryM{
+class CheckQueryManutecoes{
 public:
     QString placa;
     int id_moto;

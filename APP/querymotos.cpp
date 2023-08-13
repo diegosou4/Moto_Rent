@@ -23,7 +23,7 @@ void querymotos::on_pushButton_clicked()
     QStringList namecolunm = {"id","Modelo","Placa","Marca","Cor","Km atual","Valor Pago", "Data da Compra", "Status"};
     QString sql;
 
-    CheckQuery checkQuery;
+    CheckQueryMotos checkQuery;
 
     checkQuery.getLine(ui->line_id->text(),ui->line_placa->text(),ui->line_marca->text(),click_check,ui->check_rent->isChecked());   // Recebendo os valores das linhas
 

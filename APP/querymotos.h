@@ -31,7 +31,7 @@ private slots:
 private:
     Ui::querymotos *ui;
 };
-class CheckQuery{
+class CheckQueryMotos{
 public:
     QString id_moto,placa,marca;
     int clickcheck;

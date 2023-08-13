@@ -18,7 +18,7 @@ void querymanutecoes::on_btn_search_clicked()
     QSqlQuery query;
     QString sql;
     QStringList namecolunm = {"Nome da Moto","Placa","Marca","Id_moto","Id_Manuntecao","Data","Obersavacao", "Valor"};
-    CheckQueryM checkQuery;
+    CheckQueryManutecoes checkQuery;
     checkQuery.getLine(ui->line_id_moto->text().toInt(), ui->line_placa->text());
 
     sql = checkQuery.addValuesLine(sql);
