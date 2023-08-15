@@ -31,11 +31,10 @@ public:
 
 
         // Verificando se os inputs estao vazios
-        bool islineEmpty(QString line_name,QString line_numero, QString line_nif,QString line_endereco ,QString line_data_contrato ,QString line_id_moto){
-            if(line_name.isEmpty() || line_numero.isEmpty() || line_nif.isEmpty() || line_endereco.isEmpty() ||line_data_contrato.isEmpty()|| line_id_moto.isEmpty()){
+        bool islineEmpty(QString line_name,QString line_numero, QString line_nif,QString line_endereco ,QString line_id_moto){
+            if(line_name.isEmpty() || line_numero.isEmpty() || line_nif.isEmpty() || line_endereco.isEmpty() || line_id_moto.isEmpty()){
                 return true;
             } else{
-                getvaluesline(line_name,line_numero,line_nif,line_endereco,line_data_contrato,line_id_moto);
                 return false;
             }
          }
@@ -81,6 +80,7 @@ public:
             query.bindValue(":data_contrato", data_contrato);
             query.bindValue(":id_moto", id_moto);
             qDebug() << name;
+            qDebug() << numero;
                if(query.exec()){
                    return true;
                } else{

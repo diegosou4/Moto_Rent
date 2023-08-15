@@ -117,7 +117,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QDateEdit" name="dateEdit"/>
+         <widget class="QDateEdit" name="line_data"/>
         </item>
        </layout>
       </item>
@@ -135,7 +135,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_2"/>
+         <widget class="QLineEdit" name="line_valor"/>
         </item>
        </layout>
       </item>
@@ -149,7 +149,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_3"/>
+         <widget class="QLineEdit" name="line_observacao"/>
         </item>
        </layout>
       </item>
@@ -163,7 +163,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_4"/>
+         <widget class="QLineEdit" name="line_kmatual"/>
         </item>
        </layout>
       </item>
@@ -187,14 +187,14 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="btn_cancel">
           <property name="text">
            <string>Cancelar</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="btn_salve">
           <property name="text">
            <string>Salvar</string>
           </property>

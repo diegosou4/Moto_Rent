@@ -100,7 +100,8 @@ void querymanutecoes::on_tableWidget_cellClicked(int row, int column)
     int id_manutencao;
     id_manutencao = ui->tableWidget->item(row,0)->text().toInt();
     editarManutecao.getid_manutecao(id_manutencao);
-    editarManutecao.GetValue(sql,query);
+    editarManutecao.GetValueMoto(sql,query);
+    qDebug() << editarManutecao.id_manutecao;
 
 }
 
